@@ -10,7 +10,9 @@ defmodule RunLengthEncoder do
 
   def encode(string) do
     Enum.chunk_by(String.split(string, "", trim: true), fn(l) -> l end)
-    |> Enum.map(fn(l) -> "#{length(l)}#{List.first(l)}" end)
+    |> Enum.map(fn(l) ->
+      "#{length(l)}#{List.first(l)}"
+    end)
     |> Enum.join
   end
 
@@ -18,7 +20,9 @@ defmodule RunLengthEncoder do
   def decode(string) do
     String.split(string, ~r/()[A-Z]()/, on: [1,2], trim: true)
     |> Enum.chunk(2)
-    |> Enum.map(fn([number|letter]) -> "#{String.duplicate(List.to_string(letter), String.to_integer(number))}" end)
+    |> Enum.map(fn([number|letter]) ->
+      "#{String.duplicate(List.to_string(letter), String.to_integer(number))}"
+    end)
     |> Enum.join
   end
 end
