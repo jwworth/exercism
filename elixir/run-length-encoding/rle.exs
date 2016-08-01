@@ -21,7 +21,7 @@ defmodule RunLengthEncoder do
     String.split(string, ~r/()[A-Z]()/, on: [1,2], trim: true)
     |> Enum.chunk(2)
     |> Enum.map(fn([number|letter]) ->
-      "#{String.duplicate(List.to_string(letter), String.to_integer(number))}"
+      String.duplicate(List.to_string(letter), String.to_integer(number))
     end)
     |> Enum.join
   end
