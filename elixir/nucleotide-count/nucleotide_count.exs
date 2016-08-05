@@ -15,11 +15,19 @@ defmodule DNA do
   @spec count([char], char) :: non_neg_integer
   def count(char, nucleotide, count \\ 0)
   def count([h|t], nucleotide, count) do
+    unless Enum.any?([65,67,71,84], fn(n) -> n == h end) do
+      raise ArgumentError
+    end
+
     if h == nucleotide, do: count = count + 1
     count(t, nucleotide, count)
   end
 
-  def count([], _, count) do
+  def count([], nucleotide, count) do
+    unless Enum.any?([65,67,71,84], fn(n) -> n == nucleotide end) do
+      raise ArgumentError
+    end
+
     count
   end
 
@@ -33,6 +41,11 @@ defmodule DNA do
   """
   @spec histogram([char]) :: map
   def histogram(strand) do
-
+    Enum.reduce(strand, %{65 => 0, 67 => 0, 71 => 0, 84 => 0}, fn(char, acc) ->
+      unless Enum.any?([65,67,71,84], fn(n) -> n == char end) do
+        raise ArgumentError
+      end
+      Map.update(acc, char, 1, &(&1 + 1))
+    end)
   end
 end
