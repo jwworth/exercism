@@ -4,9 +4,8 @@ defmodule SumOfMultiples do
   """
   @spec to(non_neg_integer, [non_neg_integer]) :: non_neg_integer
   def to(limit, list) do
-    Enum.filter((limit - 1)..2, fn(n) ->
-      Enum.any?(list, fn(l) -> rem(n, l) == 0 end)
-    end)
-    |> Enum.sum
+    2..limit - 1
+      |> Enum.filter(fn(n) -> Enum.any?(list, &(rem(n, &1) == 0)) end)
+      |> Enum.sum
   end
 end
