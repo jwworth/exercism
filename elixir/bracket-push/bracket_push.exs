@@ -3,13 +3,14 @@ defmodule BracketPush do
   Checks that all the brackets and braces in the string are matched correctly, and nested correctly
   """
   @spec check_brackets(String.t) :: boolean
-  def check_brackets(""), do: true
-
   def check_brackets(str) do
-    stripped = String.replace(str, ~r/[^\(\)\[\]\{\}]/, "")
-      |> String.replace("()", "")
-      |> String.replace("[]", "")
-      |> String.replace("{}", "")
+    do_check_brackets(String.replace(str, ~r/[^\(\)\[\]\{\}]/, ""))
+  end
+
+  def do_check_brackets(""), do: true
+
+  def do_check_brackets(str) do
+    stripped = String.replace(str, ~r/\(\)|\[\]|\{\}/, "")
 
     if String.length(stripped) != String.length(str) do
       check_brackets(stripped)
