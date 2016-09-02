@@ -2,6 +2,10 @@
 
 My solutions to the code challenges of [Exercism](http://exercism.io).
 
+This repository is a mirror of my profile page:
+
+http://exercism.io/jwworth
+
 ### Installation
 
 ```sh
