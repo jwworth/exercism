@@ -17,5 +17,5 @@ Each problem has its own test file; run with the appropriate interpreter.
 
 ### License
 
-This project is released under the same terms and conditions of
+This project is released under the same terms and conditions as
 [Exercism](http://exercism.io).
