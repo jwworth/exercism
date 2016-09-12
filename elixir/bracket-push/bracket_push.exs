@@ -7,9 +7,8 @@ defmodule BracketPush do
     do_check_brackets(String.replace(str, ~r/[^\(\)\[\]\{\}]/, ""))
   end
 
-  def do_check_brackets(""), do: true
-
-  def do_check_brackets(str) do
+  defp do_check_brackets(""), do: true
+  defp do_check_brackets(str) do
     stripped = String.replace(str, ~r/\(\)|\[\]|\{\}/, "")
 
     if String.length(stripped) != String.length(str) do
