@@ -12,14 +12,14 @@ Take one down and pass it around, #{stepdown_two} bottle#{if stepdown_two > 1, d
     """
   end
 
-  def verse(number) when number == 2 do
+  def verse(2) do
     """
-    #{number - 1} bottle of beer on the wall, #{number - 1} bottle of beer.
+    1 bottle of beer on the wall, 1 bottle of beer.
 Take it down and pass it around, no more bottles of beer on the wall.
     """
   end
 
-  def verse(number) when number == 1 do
+  def verse(1) do
     """
     No more bottles of beer on the wall, no more bottles of beer.
 Go to the store and buy some more, 99 bottles of beer on the wall.
