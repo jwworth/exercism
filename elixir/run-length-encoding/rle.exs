@@ -9,7 +9,7 @@ defmodule RunLengthEncoder do
   @spec encode(String.t) :: String.t
 
   def encode(string) do
-    Enum.chunk_by(String.split(string, "", trim: true), fn(l) -> l end)
+    Enum.chunk_by(String.graphemes(string), fn(l) -> l end)
     |> Enum.map(fn(l) ->
       "#{length(l)}#{List.first(l)}"
     end)
