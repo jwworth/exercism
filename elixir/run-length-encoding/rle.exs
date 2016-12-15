@@ -10,8 +10,8 @@ defmodule RunLengthEncoder do
 
   def encode(string) do
     Enum.chunk_by(String.graphemes(string), fn(l) -> l end)
-    |> Enum.map(fn(l) ->
-      "#{length(l)}#{List.first(l)}"
+    |> Enum.map(fn([h|_] = list) ->
+      "#{length(list)}#{h}"
     end)
     |> Enum.join
   end
