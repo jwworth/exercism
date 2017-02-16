@@ -1,10 +1,12 @@
 # Exercism
 
-My solutions to the code challenges of [Exercism](http://exercism.io).
+These are my solutions to the code challenges of [Exercism](http://exercism.io).
 
-This repository is a mirror of my profile page:
+This repository mirrors my Exercism profile:
 
 http://exercism.io/jwworth
+
+_47 challenges completed..._
 
 ### Installation
 
@@ -13,7 +15,7 @@ $ git clone https://github.com/jwworth/exercism
 $ cd exercism
 ```
 
-Each problem has its own test file; run with the appropriate interpreter.
+Each problem has its own test; follow the `README` instructions to execute.
 
 ### License
 
