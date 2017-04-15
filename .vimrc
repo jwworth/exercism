@@ -9,4 +9,4 @@ function! CountExercisms()
   execute '!git ls-files -x * | xargs -n 1 dirname | uniq | wc -l'
 endfunction
 
-nnoremap <leader>c :call CountExercisms()<cr>
+nnoremap <leader>ce :call CountExercisms()<cr>
