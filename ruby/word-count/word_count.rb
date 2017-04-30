@@ -10,12 +10,8 @@ class Phrase
       word.gsub(/^'([a-z]*)'$/, '\1')
     end.reject(&:empty?)
 
-    prepared_words.each_with_object({}) do |word, h|
-      if h[word]
-        h[word] += 1
-      else
-        h[word] = 1
-      end
+    prepared_words.each_with_object(Hash.new(0)) do |word, hash|
+      hash[word] += 1
     end
   end
 end
