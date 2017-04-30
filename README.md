@@ -6,7 +6,7 @@ This repository mirrors my Exercism profile:
 
 http://exercism.io/jwworth
 
-_57 challenges completed..._
+_58 challenges completed..._
 
 ### Installation
 
