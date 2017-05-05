@@ -2,7 +2,7 @@ class School
   attr_accessor :students_hash
 
   def initialize
-    @students_hash = Hash.new([])
+    @students_hash = Hash.new { |hash, key| hash[key] = [] }
   end
 
   def students(grade)
@@ -10,7 +10,7 @@ class School
   end
 
   def add(name, grade)
-    students_hash[grade] += [name]
+    students_hash[grade] << name
     students_hash[grade].sort!
   end
 
