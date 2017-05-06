@@ -2,8 +2,7 @@ class PhoneNumber
   def self.clean(numbers)
     return if letters_and_numbers?(numbers)
 
-    numbers = numbers.gsub(/[^\d]/, '')
-    numbers = numbers[1..-1] if numbers[0] == '1'
+    numbers = numbers.gsub(/[^\d]/, '').sub(/^1/, '')
     return if invalid_codes?(numbers)
 
     numbers
@@ -12,7 +11,7 @@ class PhoneNumber
   private
 
   def self.letters_and_numbers?(numbers)
-    numbers.match?(/[0-9]/) && numbers.match?(/[a-z]/)
+    numbers =~ /[0-9]/ && numbers =~ /[a-z]/
   end
 
   def self.invalid_codes?(numbers)
