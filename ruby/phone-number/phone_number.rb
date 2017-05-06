@@ -15,7 +15,7 @@ class PhoneNumber
   end
 
   def self.invalid_codes?(numbers)
-    numbers !~ /^223456\d{4}$/
+    numbers !~ /^[2-9]\d{2}[2-9]\d{6}$/
   end
 end
 
