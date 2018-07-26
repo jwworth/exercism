@@ -4,7 +4,7 @@ These are my solutions to the code challenges of [Exercism](http://exercism.io).
 
 This repository mirrors my Exercism profile:
 
-http://exercism.io/jwworth
+https://exercism.io/profiles/jwworth
 
 _69 challenges completed..._
 
