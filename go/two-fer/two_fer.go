@@ -5,11 +5,8 @@ import "fmt"
 
 // Print a sentence about sharing.
 func ShareWith(name string) string {
-	var receiver string
 	if name == "" {
-		receiver = "you"
-	} else {
-		receiver = name
+		name = "you"
 	}
-	return fmt.Sprintf("One for %s, one for me.", receiver)
+	return fmt.Sprintf("One for %s, one for me.", name)
 }
