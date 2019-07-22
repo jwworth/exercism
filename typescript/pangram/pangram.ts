@@ -6,7 +6,7 @@ class Pangram {
   }
 
   isPangram(): boolean {
-    const letters = this.input.split(/[^a-z]|/).filter(Boolean);
+    const letters = this.input.replace(/[^a-z]/g, '');
     return new Set(letters).size === 26;
   }
 }
