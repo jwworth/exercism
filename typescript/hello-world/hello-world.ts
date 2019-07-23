@@ -1,5 +1,5 @@
 class HelloWorld {
-  static hello(name = 'World'): string {
+  static hello(name: string = 'World'): string {
     return `Hello, ${name}!`;
   }
 }
