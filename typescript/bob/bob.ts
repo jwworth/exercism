@@ -1,16 +1,16 @@
 class Bob {
-  hey(phrase: string): string {
-    const input = phrase.trim();
+  hey(input: string): string {
+    const phrase = input.trim();
 
-    if (/^[A-Z\s]*\?$/.test(input)) {
+    if (/^[A-Z\s]*\?$/.test(phrase)) {
       return "Calm down, I know what I'm doing!";
-    } else if (input.slice(-1) === '?') {
+    } else if (phrase.endsWith('?')) {
       return 'Sure.';
-    } else if (input.trim() === '') {
+    } else if (!phrase.trim()) {
       return 'Fine. Be that way!';
-    } else if (/^[\d\s,]*$/.test(input)) {
+    } else if (/^[\d\s,]*$/.test(phrase)) {
       return 'Whatever.';
-    } else if (input.toUpperCase() === input) {
+    } else if (phrase.toUpperCase() === phrase) {
       return 'Whoa, chill out!';
     } else {
       return 'Whatever.';
