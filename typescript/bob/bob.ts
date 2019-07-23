@@ -2,15 +2,17 @@ class Bob {
   hey(input: string): string {
     const phrase = input.trim();
 
-    if (/^[A-Z\s]*\?$/.test(phrase)) {
+    const isCaps = /[A-Z]/.test(phrase) && !/[a-z]/.test(phrase);
+    const isEmpty = !phrase;
+    const isQuestion = phrase.endsWith('?');
+
+    if (isCaps && isQuestion) {
       return "Calm down, I know what I'm doing!";
-    } else if (phrase.endsWith('?')) {
+    } else if (isQuestion) {
       return 'Sure.';
-    } else if (!phrase.trim()) {
+    } else if (isEmpty) {
       return 'Fine. Be that way!';
-    } else if (/^[\d\s,]*$/.test(phrase)) {
-      return 'Whatever.';
-    } else if (phrase.toUpperCase() === phrase) {
+    } else if (isCaps) {
       return 'Whoa, chill out!';
     } else {
       return 'Whatever.';
