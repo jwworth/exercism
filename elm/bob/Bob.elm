@@ -1,8 +1,7 @@
 module Bob exposing (hey)
 
 import Char exposing (isAlpha)
-import List exposing (all)
-import String exposing (any, endsWith, isEmpty, lines, toUpper, trim, words)
+import String exposing (any, endsWith, isEmpty, toUpper, trim, words)
 
 
 hey : String -> String
@@ -40,5 +39,5 @@ isQuestion str =
 
 
 isSilence : String -> Bool
-isSilence str =
-    all isEmpty (words str)
+isSilence =
+    trim >> isEmpty
