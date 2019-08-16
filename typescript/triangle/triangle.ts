@@ -12,7 +12,7 @@ export default class Triangle {
 
     if (this.isEquilateral(this.sides)) {
       return 'equilateral';
-    } else if (this.isIsosoceles(this.sides)) {
+    } else if (this.isIsosceles(this.sides)) {
       return 'isosceles';
     } else {
       return 'scalene';
@@ -23,7 +23,7 @@ export default class Triangle {
     return sideOne === sideThree;
   }
 
-  isIsosoceles([sideOne, sideTwo, sideThree]: number[]): boolean {
+  isIsosceles([sideOne, sideTwo, sideThree]: number[]): boolean {
     return sideOne === sideTwo || sideTwo === sideThree;
   }
 
