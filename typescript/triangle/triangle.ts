@@ -28,14 +28,9 @@ export default class Triangle {
   }
 
   isIllegal([sideOne, sideTwo, sideThree]: number[]): boolean {
-    const noSize = sideOne + sideTwo + sideThree === 0;
+    const negativeSize = sideOne <= 0;
+    const inEqual = sideOne + sideTwo <= sideThree;
 
-    const negativeSize = [sideOne, sideTwo, sideOne].some(
-      side => Math.sign(side) === -1
-    );
-
-    const inEqual = !(sideOne + sideTwo >= sideThree);
-
-    return noSize || negativeSize || inEqual;
+    return negativeSize || inEqual;
   }
 }
