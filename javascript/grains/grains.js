@@ -1,4 +1,4 @@
-const grainsOnPosition = max => {
+const grainsOnPosition = (max = 64) => {
   const result = [1];
   const positions = [...Array(max - 1).keys()];
 
@@ -19,6 +19,6 @@ export const square = number => {
 
 export const total = () => {
   return BigInt(
-    grainsOnPosition(64).reduce((acc, cur) => BigInt(acc) + BigInt(cur))
+    grainsOnPosition().reduce((acc, cur) => BigInt(acc) + BigInt(cur))
   );
 };
