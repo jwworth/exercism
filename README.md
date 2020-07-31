@@ -20,7 +20,7 @@ Each problem has its own test; follow the `README` instructions to execute.
 I made a shell script to help me download and run exercises. Run it with:
 
 ```
-$ bin/start
+$ source bin/start
 ```
 
 ### License
