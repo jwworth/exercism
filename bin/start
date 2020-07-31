@@ -27,4 +27,11 @@ case $language in
 
     watch ruby $exercise\_test.rb
     ;;
+  "rust")
+    tmux send-keys -t -1 "vim -o $language/$exercise/src/lib.rs $language/$exercise/tests/$exercise.rs" Enter
+
+    cd $language/$exercise
+
+    cargo test
+    ;;
 esac
