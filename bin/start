@@ -20,6 +20,13 @@ case $language in
 
     npm i && npm test -- --watch
   ;;
+  "typescript")
+    tmux send-keys -t -1 "vim -o $language/$exercise/$exercise.{,test.}ts" Tab Enter
+
+    cd $language/$exercise
+
+    npm i && npm test -- --watch
+  ;;
   "ruby")
     tmux send-keys -t -1 "vim -o $language/$exercise/$exercise.rb $language/$exercise/$exercise\_test.rb" Enter
 
