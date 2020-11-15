@@ -1,13 +1,12 @@
+# Files
 *.phar
-
-python
-php
-
-node_modules
-
+*.pyc
 .exercism
 
+# Directories
 _build
-target
-
 elm-stuff
+node_modules
+php
+target
+tmp
