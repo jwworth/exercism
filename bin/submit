@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Get exercise
+echo What exercise would you like to submit?
+read exercise
+
+# Get langauge
+echo In what language?
+read language
+
+# Open files in Vim and start test runs
+case $language in
+  "ruby")
+    exercism submit $language/$exercise/$exercise.rb
+    ;;
+esac

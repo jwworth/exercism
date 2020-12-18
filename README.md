@@ -21,6 +21,14 @@ I made a shell script to help me download and run exercises. Run it with:
 
 ```
 $ source bin/start
+$ bin/start
+```
+
+To submit:
+
+```
+$ source bin/submit
+$ bin/submit
 ```
 
 ### License
