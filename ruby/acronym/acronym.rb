@@ -1,9 +1,9 @@
 class Acronym
-  def self.abbreviate(long)
-    words = long.gsub(/[,-]/, ' ')
+  def self.abbreviate(term)
+    words = term.tr(',-', ' ')
 
     words.split(/\s+/).map do |word|
-      word[0].upcase
-    end.join
+      word[0]
+    end.join.upcase
   end
 end
