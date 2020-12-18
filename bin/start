@@ -20,6 +20,7 @@ case $language in
 
     npm i && npm test -- --watch
   ;;
+
   "typescript")
     tmux send-keys -t -1 "vim -o $language/$exercise/$exercise.{,test.}ts" Tab Enter
 
@@ -27,13 +28,12 @@ case $language in
 
     npm i && npm test -- --watch
   ;;
+
   "ruby")
-    tmux send-keys -t -1 "vim -o $language/$exercise/$exercise.rb $language/$exercise/$exercise\_test.rb" Enter
-
-    cd $language/$exercise
-
-    watch ruby $exercise\_test.rb
+    tmux send-keys -t -1 "vim -o ruby/$exercise/*.rb" Enter
+    watch ruby -Itest ruby/$exercise/$exercise\_test.rb
     ;;
+
   "rust")
     tmux send-keys -t -1 "vim -o $language/$exercise/src/lib.rs $language/$exercise/tests/$exercise.rs" Enter
 
