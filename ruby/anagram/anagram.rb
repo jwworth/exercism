@@ -2,13 +2,13 @@ class Anagram
   attr_reader :word
 
   def initialize(word)
-    @word = word
+    @word = word.downcase
   end
 
   def match(possibles)
     possibles.filter do |possible|
-      possible.downcase != word.downcase &&
-        possible.downcase.chars.sort == word.downcase.chars.sort
+      possible.downcase != word &&
+        possible.downcase.chars.sort == word.chars.sort
     end
   end
 end
