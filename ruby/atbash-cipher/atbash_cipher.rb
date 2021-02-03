@@ -22,11 +22,11 @@ module Atbash
   end
 
   def self.prepare_decode(cipher)
-    cipher.gsub(/[^a-z0-9]/, '').chars
+    cipher.gsub(/[^\w]/, '').chars
   end
 
   def self.prepare_encode(plaintext)
-    plaintext.downcase.gsub(/[^a-z0-9]/, '').chars
+    plaintext.downcase.gsub(/[^\w]/, '').chars
   end
 
   def self.letters
