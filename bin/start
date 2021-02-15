@@ -1,44 +1,15 @@
-#!/bin/sh
+#!/usr/bin/ruby
 
-# Get exercise
-echo What exercise would you like to download?
-read exercise
+puts 'What exercise would you like to download?'
+exercise = gets.chomp
 
-# Get langauge
-echo In what language?
-read language
+puts 'In what language?'
+language = gets.chomp
 
-# Download exercise
-exercism download --exercise=$exercise --track=$language
+`exercism download --exercise=#{exercise} --track=#{language}`
 
-# Open files in Vim and start test runs
-case $language in
-  "javascript")
-    tmux send-keys -t -1 "vim -o $language/$exercise/$exercise.js $language/$exercise/$exercise.spec.js" Enter
-
-    cd $language/$exercise
-
-    npm i && npm test -- --watch
-  ;;
-
-  "typescript")
-    tmux send-keys -t -1 "vim -o $language/$exercise/$exercise.{,test.}ts" Tab Enter
-
-    cd $language/$exercise
-
-    npm i && npm test -- --watch
-  ;;
-
-  "ruby")
-    tmux send-keys -t -1 "vim -o ruby/$exercise/*.rb" Enter
-    watch ruby -Itest ruby/$exercise/$exercise\_test.rb
-    ;;
-
-  "rust")
-    tmux send-keys -t -1 "vim -o $language/$exercise/src/lib.rs $language/$exercise/tests/$exercise.rs" Enter
-
-    cd $language/$exercise
-
-    cargo test
-    ;;
-esac
+case language
+when 'ruby'
+  `tmux send-keys -t -1 'vim -o ruby/#{exercise}/*.rb' Enter`
+  exec "watch ruby -Itest ruby/#{exercise}/#{exercise}\_test.rb"
+end
