@@ -1,16 +1,10 @@
-#!/bin/sh
+#!/usr/bin/ruby
 
-# Get exercise
-echo What exercise would you like to submit?
-read exercise
+puts 'What exercise would you like to submit?'
+exercise = gets.chomp
 
-# Get langauge
-echo In what language?
-read language
+puts 'In what language?'
+language = gets.chomp
 
-# Open files in Vim and start test runs
-case $language in
-  "ruby")
-    exercism submit $language/$exercise/$exercise.rb
-    ;;
-esac
+extension = language == 'ruby' ? 'rb' : ''
+`exercism submit #{language}/#{exercise}/#{exercise}.#{extension}`
