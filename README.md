@@ -17,17 +17,15 @@ Each problem has its own test; follow the `README` instructions to execute.
 
 ### Usage
 
-I made a shell script to help me download and run exercises. Run it with:
+I made a script to help me download and run exercises. Install Ruby, then:
 
 ```
-$ source bin/start
 $ bin/start
 ```
 
 To submit:
 
 ```
-$ source bin/submit
 $ bin/submit
 ```
 
