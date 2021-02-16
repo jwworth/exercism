@@ -1,15 +1,16 @@
 class WordProblem
   SYMBOL_MAP = {
-    'plus' => '+',
-    'minus' => '-',
-    'multiplied' => '*',
-    'divided' => '/'
+    plus: '+',
+    minus: '-',
+    multiplied: '*',
+    divided: '/'
   }
 
   attr_reader :input
 
   def initialize(sentence)
-    @input = sub_symbols(sentence)
+    SYMBOL_MAP.map { |k, v| sentence.gsub!(k.to_s, v) }
+    @input = sentence
   end
 
   def answer
@@ -22,11 +23,6 @@ class WordProblem
   end
 
   private
-
-  def sub_symbols(sentence)
-    SYMBOL_MAP.map { |k, v| sentence.gsub!(k, v) }
-    sentence
-  end
 
   def tokenize(input)
     input.split(/\s|\?/).select do |char|
