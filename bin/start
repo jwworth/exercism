@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-puts 'What exercise would you like to download?'
+puts "What exercise would you like to download (i.e. 'protein-translation')?"
 exercise = gets.chomp
 
 puts 'In what language?'
@@ -11,5 +11,7 @@ language = gets.chomp
 case language
 when 'ruby'
   `tmux send-keys -t -1 'vim -o ruby/#{exercise}/*.rb' Enter`
-  exec "watch ruby -Itest ruby/#{exercise}/#{exercise}\_test.rb"
+
+  snake_cased_exercise = exercise.gsub('-', '_')
+  exec "ruby -Itest ruby/#{exercise}/#{snake_cased_exercise}\_test.rb"
 end
