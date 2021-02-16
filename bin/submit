@@ -7,4 +7,5 @@ puts 'In what language?'
 language = gets.chomp
 
 extension = language == 'ruby' ? 'rb' : ''
-`exercism submit #{language}/#{exercise}/#{exercise}.#{extension}`
+snake_cased_exercise = exercise.gsub('-', '_')
+`exercism submit #{language}/#{exercise}/#{snake_cased_exercise}.#{extension}`
