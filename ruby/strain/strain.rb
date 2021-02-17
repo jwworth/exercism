@@ -1,17 +1,13 @@
 class Array
   def keep(&block)
-    kept = []
-    each do |item|
+    each_with_object([]) do |item, kept|
       kept.push(item) if block.call(item)
     end
-    kept
   end
 
   def discard(&block)
-    discarded = []
-    each do |item|
+    each_with_object([]) do |item, discarded|
       discarded.push(item) unless block.call(item)
     end
-    discarded
   end
 end
