@@ -9,8 +9,9 @@ https://exercism.io/profiles/jwworth
 ### Installation
 
 ```sh
-$ git clone https://github.com/jwworth/exercism
-$ cd exercism
+brew install exercism
+git clone https://github.com/jwworth/exercism
+cd exercism
 ```
 
 Each problem has its own test; follow the `README` instructions to execute.
