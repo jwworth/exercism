@@ -2,27 +2,24 @@ class Luhn:
     def __init__(self, card_num):
         self.card_num = card_num
 
-    def double_odd_index(self, index, item):
+    def transform_digit(self, index, digit):
       if index % 2 != 0:
-        doubled = item * 2
+        doubled = digit * 2
         if doubled > 9:
           doubled = doubled -9
         return doubled
 
       else:
-        return item
+        return digit
 
     def valid(self):
         stripped = self.card_num.replace(' ', '')
 
-        if len(stripped) < 2:
+        if not stripped.isnumeric() or len(stripped) < 2:
             return False
 
+        digits = map(int, list(stripped))
+        transformed = (self.transform_digit(index, digit)
+                          for index, digit in enumerate(reversed(list(digits))))
 
-        if not stripped.isnumeric():
-            return False
-
-        a_list = list(map(int, list(stripped)))
-        a_list.reverse()
-        b_list = map(lambda x: self.double_odd_index(*x), enumerate(a_list))
-        return sum(b_list) % 10 == 0
+        return sum(transformed) % 10 == 0
