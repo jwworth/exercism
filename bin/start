@@ -1,17 +1,51 @@
 #!/usr/bin/ruby
 
+repo_root = File.expand_path('..', __dir__)
+Dir.chdir(repo_root)
+
 puts "What exercise would you like to download (i.e. 'protein-translation')?"
-exercise = gets.chomp
+exercise = gets.chomp.downcase
 
-puts 'In what language?'
-language = gets.chomp
+puts "In what language (i.e. 'javascript')?"
+language = gets.chomp.downcase
 
-`exercism download --exercise=#{exercise} --track=#{language}`
+unless system('exercism', 'download', "--exercise=#{exercise}", "--track=#{language}")
+  warn 'Download failed'
+  exit 1
+end
 
 case language
-when 'ruby'
-  `tmux send-keys -t -1 'vim -o ruby/#{exercise}/*.rb' Enter`
+when 'javascript'
+  puts 'Starting JavaScript problem...'
 
-  snake_cased_exercise = exercise.gsub('-', '_')
-  exec "ruby -Itest ruby/#{exercise}/#{snake_cased_exercise}\_test.rb"
+  exercise_dir = File.join(repo_root, 'javascript', exercise)
+  source_file = File.join(exercise_dir, "#{exercise}.js")
+
+  unless File.directory?(exercise_dir)
+    warn "Exercise directory not found: #{exercise_dir}"
+    exit 1
+  end
+
+  unless File.file?(source_file)
+    warn "Source file not found: #{source_file}"
+    exit 1
+  end
+
+  Dir.chdir(exercise_dir)
+
+  unless system('npm', 'install')
+    warn 'npm install failed'
+    exit 1
+  end
+
+  if ENV['TMUX']
+    system('tmux', 'split-window', '-h', '-c', exercise_dir, 'vim', '-o', source_file)
+  else
+    warn 'Not inside tmux; opening tests only.'
+  end
+
+  exec('npm', 'run', 'test', '--', '--watch')
+else
+  warn "Unsupported language: #{language}"
+  exit 1
 end
