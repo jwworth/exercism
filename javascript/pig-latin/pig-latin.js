@@ -13,18 +13,16 @@ const toPigLatin = (word) => {
   const threeLetterConsonants = ['thr', 'squ', 'sch'];
   const twoLetterConsonants = ['ch', 'rh', 'qu', 'th'];
 
-  let translated = word;
+  let rotation = 0;
   if (twoLetterVowels.includes(word.slice(0, 2))) {
-    return `${translated}ay`;
-  }
-
-  if (threeLetterConsonants.includes(word.slice(0, 3))) {
-    translated = rotate(word, 3);
+    rotation = 0;
+  } else if (threeLetterConsonants.includes(word.slice(0, 3))) {
+    rotation = 3;
   } else if (twoLetterConsonants.includes(word.slice(0, 2))) {
-    translated = rotate(word, 2);
+    rotation = 2;
   } else if (consonants.includes(word[0])) {
-    translated = rotate(word, 1);
+    rotation = 1;
   }
 
-  return `${translated}ay`;
+  return `${rotate(word, rotation)}ay`;
 };
