@@ -12,3 +12,6 @@ target
 tmp
 
 node_modules
+
+!README.md
+*.md
