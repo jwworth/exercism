@@ -1,13 +1,11 @@
 class Reverser
   def self.reverse(input)
-    result = ''
-    counter = input.length
+    reversed = ''
 
-    counter.times do
-      result += input[counter - 1]
-      counter -= 1
+    input.length.times do |index|
+      reversed += input[input.length - (1 + index)]
     end
 
-    result
+    reversed
   end
 end
