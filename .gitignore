@@ -13,5 +13,7 @@ tmp
 
 node_modules
 
+# Nonessential text files
 *.md
 !/README.md
+*.txt
