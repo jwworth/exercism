@@ -13,5 +13,5 @@ tmp
 
 node_modules
 
-!README.md
 *.md
+!/README.md
