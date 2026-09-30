@@ -1,4 +1,4 @@
-import { HighScores } from './high-scores';
+import {HighScores} from './high-scores';
 
 describe('High Scores Test Suite', () => {
   test('List of scores', () => {
@@ -33,7 +33,6 @@ describe('High Scores Test Suite', () => {
 
   test('Personal top when there are less than 3', () => {
     const input = [30, 70];
-    console.log(new HighScores(input).personalTopThree);
     expect(new HighScores(input).personalTopThree).toEqual([70, 30]);
   });
 

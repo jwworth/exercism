@@ -60,5 +60,4 @@ describe('Isogram Test Suite', function () {
 
     expect(word.isIsogram()).toEqual(false);
   });
-
 });

@@ -1,4 +1,4 @@
-import { colorCode, COLORS } from './resistor-color';
+import {colorCode, COLORS} from './resistor-color';
 
 describe('ResistorColor', () => {
   describe('Color codes', () => {

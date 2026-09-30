@@ -1,4 +1,4 @@
-import { score } from './darts';
+import {score} from './darts';
 
 describe('Darts', () => {
   test('Missed target', () => {

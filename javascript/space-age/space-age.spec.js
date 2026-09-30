@@ -1,4 +1,4 @@
-import { age } from './space-age';
+import {age} from './space-age';
 
 describe('Space Age', () => {
   test('age on Earth', () => {

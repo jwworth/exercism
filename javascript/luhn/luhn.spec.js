@@ -1,4 +1,4 @@
-import { valid } from './luhn';
+import {valid} from './luhn';
 
 describe('Luhn', () => {
   test('single digit strings can not be valid', () => {

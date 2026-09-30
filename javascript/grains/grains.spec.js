@@ -27,7 +27,7 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
  */
 
-import { square, total } from './grains';
+import {square, total} from './grains';
 
 describe('Grains', () => {
   describe('Returns The Number Of Grains On The Square', () => {
@@ -61,19 +61,19 @@ describe('Grains', () => {
 
     test('square 0 raises an exception', () => {
       expect(() => square(0)).toThrow(
-        new Error('square must be between 1 and 64')
+        new Error('square must be between 1 and 64'),
       );
     });
 
     test('negative square raises an exception', () => {
       expect(() => square(-1)).toThrow(
-        new Error('square must be between 1 and 64')
+        new Error('square must be between 1 and 64'),
       );
     });
 
     test('square greater than 64 raises an exception', () => {
       expect(() => square(65)).toThrow(
-        new Error('square must be between 1 and 64')
+        new Error('square must be between 1 and 64'),
       );
     });
   });

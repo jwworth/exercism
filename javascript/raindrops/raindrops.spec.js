@@ -1,4 +1,4 @@
-import { convert } from './raindrops';
+import {convert} from './raindrops';
 
 describe('Raindrops', () => {
   test('the sound for 1 is 1', () => expect(convert(1)).toEqual('1'));
