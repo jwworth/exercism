@@ -9,7 +9,7 @@ export class Matrix {
 
   get columns() {
     const rows = this.calculateRows();
-    const columnHolder = [...Array(rows[0].length).keys()].map((_) => []);
+    const columnHolder = [...Array(rows[0].length).keys()].map(() => []);
 
     rows.map((row) => row.map((cell, index) => columnHolder[index].push(cell)));
 

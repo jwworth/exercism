@@ -25,6 +25,10 @@ npm run download:js -- <exercise-name>
 npm run test:js -- <exercise-name>
 npm run commit
 npm run submit -- <track> <exercise-name>
+
+npm run format-check:js
+npm run format-fix:js
+npm run validate
 ```
 
 ## License

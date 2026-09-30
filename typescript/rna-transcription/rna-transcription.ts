@@ -1,6 +1,6 @@
 class Transcriptor {
   toRna(strand: string): string {
-    if (!!strand.match(/[^ACGT]/)) {
+    if (strand.match(/[^ACGT]/)) {
       throw new Error('Invalid input DNA.');
     }
 
@@ -15,7 +15,7 @@ class Transcriptor {
 
     return strand
       .split('')
-      .map(key => keys[key])
+      .map((key) => keys[key])
       .join('');
   }
 }
