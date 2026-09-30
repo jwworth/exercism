@@ -21,14 +21,12 @@ them
 Run the JS exercises like this.
 
 ```
-npm run download:js -- <exercise-name>
-npm run test:js -- <exercise-name>
-npm run commit
-npm run submit -- <track> <exercise-name>
+npm run download:js -- <exercise-name> # Download
+npm run test:js -- <exercise-name> # Start tests in watch mode
+npm run validate # Validate all JS code
 
-npm run format-check:js
-npm run format-fix:js
-npm run validate
+npm run commit # Commit
+npm run submit -- <track> <exercise-name> # Submit to Github and Exercism
 ```
 
 ## License
