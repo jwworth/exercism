@@ -1,23 +1,15 @@
-'use strict';
+export const findAnagrams = (source, comparisons) => {
+  const sortLetters = (word) => word.split('').sort().join('');
 
-var Anagram = function (comparator) {
-  this.order = function (word) {
-    return word.toLowerCase().split('').sort().join();
-  };
+  const normalizedSource = source.toLowerCase();
+  const sortedSource = sortLetters(normalizedSource);
 
-  this.anagram = function (comparator, comparision) {
-    var orderedComparator = this.order(comparator);
-    var orderedComparision = this.order(comparision);
-    var notMatch = comparator.toLowerCase() !== comparision.toLowerCase();
+  return comparisons.filter((word) => {
+    const normalizedWord = word.toLowerCase();
 
-    return orderedComparator === orderedComparision && notMatch;
-  };
-
-  this.matches = function (comparisions) {
-    return []
-      .concat(comparisions)
-      .filter((comparision) => this.anagram(comparator, comparision));
-  };
+    return (
+      normalizedWord !== normalizedSource &&
+      sortLetters(normalizedWord) === sortedSource
+    );
+  });
 };
-
-module.exports = Anagram;

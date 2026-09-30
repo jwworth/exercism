@@ -14,10 +14,10 @@
     "format-fix:js": "prettier --write javascript/",
     "lint:js": "oxlint javascript/",
     "lint-fix:js": "oxlint --fix javascript/",
-    "validate": "npm run format-check:js && npm run lint:js",
     "download:js": "sh -c 'exercism download --track=javascript --exercise=\"$1\"' --",
     "test:js": "sh -c 'NODE_OPTIONS=--experimental-vm-modules npx jest \"javascript/$1/$1.spec.js\" --watch' --",
     "test-all:js": "NODE_OPTIONS=--experimental-vm-modules npx jest javascript",
+    "validate": "npm run format-check:js && npm run lint:js && npm run test-all:js",
     "commit": "git add -N --ignore-removal . && git add --patch && git commit",
     "submit": "sh -c 'exercise_dir=$(printf \"%s\" \"$2\" | tr \"_\" \"-\"); git push && exercism submit \"$HOME/Exercism/$1/$exercise_dir/$2.js\"' --"
   }
