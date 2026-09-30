@@ -9,9 +9,9 @@ export class Matrix {
 
   get columns() {
     const rows = this.calculateRows();
-    const columnHolder = [...Array(rows[0].length).keys()].map(_ => []);
+    const columnHolder = [...Array(rows[0].length).keys()].map((_) => []);
 
-    rows.map(row => row.map((cell, index) => columnHolder[index].push(cell)));
+    rows.map((row) => row.map((cell, index) => columnHolder[index].push(cell)));
 
     return columnHolder;
   }
@@ -19,6 +19,6 @@ export class Matrix {
   calculateRows() {
     return this.input
       .split(/\n/)
-      .map(row => row.split(/\s/).map(cell => Number(cell)));
+      .map((row) => row.split(/\s/).map((cell) => Number(cell)));
   }
 }

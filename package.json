@@ -10,6 +10,10 @@
   },
   "type": "commonjs",
   "scripts": {
+    "format-check:js": "prettier --check javascript/",
+    "format-fix:js": "prettier --write javascript/",
+    "lint:js": "oxlint",
+    "lint-fix-:js": "oxlint --fix",
     "download:js": "sh -c 'exercism download --track=javascript --exercise=\"$1\"' --",
     "test:js": "sh -c 'NODE_OPTIONS=--experimental-vm-modules npx jest \"javascript/$1/$1.spec.js\" --watch' --",
     "commit": "git add -N --ignore-removal . && git add --patch && git commit",

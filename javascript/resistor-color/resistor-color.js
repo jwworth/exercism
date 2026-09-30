@@ -1,4 +1,4 @@
-export const colorCode = code => {
+export const colorCode = (code) => {
   let i;
   for (i = 0; i < COLORS.length; i++) {
     if (COLORS[i] === code) {

@@ -1,6 +1,6 @@
-var HelloWorld = function() {};
+var HelloWorld = function () {};
 
-HelloWorld.prototype.hello = function(input) {
+HelloWorld.prototype.hello = function (input) {
   if (input === '') input = 'World';
   return `Hello, ${input}!`;
 };

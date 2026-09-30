@@ -1,6 +1,6 @@
 const divisibleBy = (number, divisor) => number % divisor === 0;
 
-export const convert = dropCount => {
+export const convert = (dropCount) => {
   let conversion = '';
 
   const divisibleByThree = divisibleBy(dropCount, 3);

@@ -10,7 +10,7 @@ export class HighScores {
   get personalBest() {
     let max = this.scores[0];
 
-    this.scores.forEach(score => {
+    this.scores.forEach((score) => {
       if (score > max) {
         max = score;
       }

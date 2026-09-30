@@ -1,10 +1,10 @@
-const sumFactors = number =>
+const sumFactors = (number) =>
   [...Array(number).keys()].reduce(
     (acc, potentialFactor) =>
-      acc + (number % potentialFactor === 0 ? potentialFactor : 0)
+      acc + (number % potentialFactor === 0 ? potentialFactor : 0),
   );
 
-export const classify = number => {
+export const classify = (number) => {
   if (number < 1) {
     throw new Error('Classification is only possible for natural numbers.');
   }

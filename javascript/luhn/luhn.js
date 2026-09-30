@@ -1,4 +1,4 @@
-export const valid = input => {
+export const valid = (input) => {
   const trimmed = input.replace(/ /g, '');
   if (trimmed.length === 1) {
     return false;

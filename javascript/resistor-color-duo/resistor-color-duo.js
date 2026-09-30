@@ -1,4 +1,4 @@
-const colorCode = code => {
+const colorCode = (code) => {
   let i;
   for (i = 0; i < COLORS.length; i++) {
     if (COLORS[i] === code) {

@@ -1,4 +1,4 @@
-export const reverseString = input => {
+export const reverseString = (input) => {
   const letters = input.split('');
   let start_index = 0;
   let end_index = letters.length - 1;

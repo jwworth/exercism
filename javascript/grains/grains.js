@@ -9,7 +9,7 @@ const grainsOnPosition = (max = 64) => {
   return result;
 };
 
-export const square = number => {
+export const square = (number) => {
   if (number < 1 || number > 64) {
     throw new Error('square must be between 1 and 64');
   }
@@ -19,6 +19,6 @@ export const square = number => {
 
 export const total = () => {
   return BigInt(
-    grainsOnPosition().reduce((acc, cur) => BigInt(acc) + BigInt(cur))
+    grainsOnPosition().reduce((acc, cur) => BigInt(acc) + BigInt(cur)),
   );
 };

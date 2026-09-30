@@ -6,7 +6,10 @@ function Isogram(string) {
 
 Isogram.prototype.isIsogram = function () {
   var result = {};
-  var letters = this.string.toLowerCase().replace(/[^a-z|é]/g, '').split('');
+  var letters = this.string
+    .toLowerCase()
+    .replace(/[^a-z|é]/g, '')
+    .split('');
 
   letters.forEach(function (letter) {
     result[letter] = 1;
