@@ -1,0 +1,18 @@
+{
+  "name": "exercism",
+  "version": "1.0.0",
+  "description": "Tooling for managing my Exercism submissions",
+  "author": "Jake Worth <jake@jakeworth.com>",
+  "homepage": "https://github.com/jwworth/exercism#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwworth/exercism.git"
+  },
+  "type": "commonjs",
+  "scripts": {
+    "download:js": "sh -c 'exercism download --track=javascript --exercise=\"$1\"' --",
+    "test:js": "sh -c 'NODE_OPTIONS=--experimental-vm-modules npx jest \"javascript/$1/$1.spec.js\" --watch' --",
+    "commit": "git add -N --ignore-removal . && git add --patch && git commit",
+    "submit": "sh -c 'exercise_dir=$(printf \"%s\" \"$2\" | tr \"_\" \"-\"); git push && exercism submit \"$HOME/Exercism/$1/$exercise_dir/$2.js\"' --"
+  }
+}
