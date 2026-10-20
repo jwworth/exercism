@@ -1,50 +1,40 @@
 export function timeToMixJuice(name) {
-  let result = 2.5;
   switch (name) {
     case 'Pure Strawberry Joy':
-      result = 0.5;
-      break;
+      return 0.5;
     case 'Energizer':
     case 'Green Garden':
-      result = 1.5;
-      break;
+      return 1.5;
     case 'Tropical Island':
-      result = 3;
-      break;
+      return 3;
     case 'All or Nothing':
-      result = 5;
-      break;
+      return 5;
+    default:
+      return 2.5;
   }
-
-  return result;
 }
 
 const SLICEMAP = {small: 6, medium: 8, large: 10};
 
 export function limesToCut(wedgesNeeded, limes) {
-  let index = 0;
+  let limesCut = 0;
   let result = 0;
 
-  while (result < wedgesNeeded && limes[index]) {
-    const nextLime = limes[index];
-    const nextAmount = SLICEMAP[nextLime];
-    result += nextAmount;
-    index++;
+  while (result < wedgesNeeded && limes[limesCut]) {
+    const lime = limes[limesCut];
+    const slices = SLICEMAP[lime];
+    result += slices;
+    limesCut++;
   }
 
-  return index;
+  return limesCut;
 }
 
 export function remainingOrders(timeLeft, orders) {
-  let timeUsed = 0;
-  let dupes = [...orders];
-  let index = 0;
-
-  while (timeUsed < timeLeft) {
-    timeUsed += timeToMixJuice(orders[index]);
-    dupes.shift();
-    index++;
+  while (timeLeft > 0) {
+    timeLeft -= timeToMixJuice(orders[0]);
+    orders.shift();
   }
 
-  return dupes;
+  return orders;
 }
